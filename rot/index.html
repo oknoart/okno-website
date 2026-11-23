@@ -6,12 +6,70 @@
     <title>OKNO – Rot With Me | Spray Paint Print</title>
     <link rel="canonical" href="https://ok-no.net/rot/">
     <meta name="description" content="Rot With Me — 3-colour MTN 94 spray on A4 2mm greyboard. Limited run of 10 raw prints. Free UK postage.">
+    <meta property="og:site_name" content="OKNO">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:type" content="product">
+    <meta property="og:title" content="OKNO – Rot With Me | Spray Paint Print">
+    <meta property="og:description" content="Rot With Me — 3-colour MTN 94 spray on A4 2mm greyboard. Limited run of 10 raw prints. Free UK postage.">
+    <meta property="og:url" content="https://ok-no.net/rot/">
+    <meta property="og:image" content="https://ok-no.net/images/social/rot.jpg">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1000">
+    <meta property="og:image:height" content="1000">
+    <meta property="og:image:alt" content="Rot With Me – 3-colour spray-paint print by OKNO">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="OKNO – Rot With Me | Spray Paint Print">
+    <meta name="twitter:description" content="Rot With Me — 3-colour MTN 94 spray on A4 2mm greyboard. Limited run of 10 raw prints. Free UK postage.">
+    <meta name="twitter:image" content="https://ok-no.net/images/social/rot.jpg">
+    <meta name="twitter:image:alt" content="Rot With Me – 3-colour spray-paint print by OKNO">
+    <meta property="product:price:amount" content="20.00">
+    <meta property="product:price:currency" content="GBP">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../style.css">
     <link rel="icon" href="../favicon.png" type="image/png">
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Rot With Me",
+        "image": [
+          "https://ok-no.net/images/social/rot.jpg"
+        ],
+        "description": "Rot With Me — 3-colour MTN 94 spray on A4 2mm greyboard. Limited run of 10 raw prints. Free UK postage.",
+        "sku": "rot",
+        "brand": {
+          "@type": "Brand",
+          "name": "OKNO"
+        },
+        "offers": {
+          "@type": "Offer",
+          "url": "https://ok-no.net/rot/",
+          "priceCurrency": "GBP",
+          "price": "20.00",
+          "availability": "https://schema.org/InStock",
+          "itemCondition": "https://schema.org/NewCondition",
+          "seller": {
+            "@type": "Organization",
+            "name": "OKNO"
+          },
+          "shippingDetails": {
+            "@type": "OfferShippingDetails",
+            "shippingDestination": {
+              "@type": "DefinedRegion",
+              "addressCountry": "GB"
+            },
+            "shippingRate": {
+              "@type": "MonetaryAmount",
+              "value": "0",
+              "currency": "GBP"
+            }
+          }
+        }
+      }
+    </script>
   </head>
   <body>
     <div class="container">
@@ -35,30 +93,27 @@
 
       <div class="images">
         <div class="image-block">
-          <img src="https://ok-no.net/images/rot1.webp" alt="Full view of the ‘Rot With Me’ spray-paint print" loading="eager" decoding="async">
+          <img src="https://ok-no.net/images/rot1.webp" alt="Full view of the ‘Rot With Me’ spray-paint print" width="1000" height="1000" loading="eager" decoding="async">
         </div>
         <div class="image-block">
-          <img src="https://ok-no.net/images/rot2.webp" alt="Detail view of texture and colour on ‘Rot With Me’ print" loading="lazy" decoding="async">
+          <img src="https://ok-no.net/images/rot2.webp" alt="Detail view of texture and colour on ‘Rot With Me’ print" width="1000" height="1000" loading="lazy" decoding="async">
         </div>
         <div class="image-block">
-          <img src="https://ok-no.net/images/rot3.webp" alt="Close-up of greyboard surface on ‘Rot With Me’ print" loading="lazy" decoding="async">
+          <img src="https://ok-no.net/images/rot3.webp" alt="Close-up of greyboard surface on ‘Rot With Me’ print" width="1000" height="1000" loading="lazy" decoding="async">
           <div class="secondary-text">£20. 3 colour MTN 94 spray paint on A4 2mm greyboard. Limited run of 10 raw prints. Free UK postage.</div>
         </div>
 
         <div class="form-section">
           <form id="order-form">
-            <textarea id="name" name="name" rows="2" class="form-input" placeholder="Name?" required></textarea>
-            <input id="email" name="email" type="email" class="form-input" placeholder="Email?" required>
-            <textarea id="address" name="address" rows="5" class="form-input" placeholder="Address?" required></textarea>
+            <textarea id="name" name="name" rows="2" class="form-input" placeholder="Name?" aria-label="Name" autocomplete="name" required></textarea>
+            <input id="email" name="email" type="email" class="form-input" placeholder="Email?" aria-label="Email" autocomplete="email" required>
+            <textarea id="address" name="address" rows="5" class="form-input" placeholder="Address?" aria-label="Address" autocomplete="street-address" required></textarea>
             <input type="hidden" id="product" name="product" value="rot">
             <input type="text" name="website" id="website" autocomplete="off" tabindex="-1" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;height:0;width:0;padding:0;border:0">
             <input type="hidden" id="cfToken" name="cfToken">
             <div class="cf-turnstile" data-sitekey="0x4AAAAAABuBFSLTdJ_mepsn" data-callback="oknoSetCFToken"></div>
             <div class="purchase-actions">
-  <!-- IN STOCK (uncomment this, comment the OOS one) -->
-  <button id="buy-btn" type="submit" class="form-submit">BUY</button>
-  <!-- OUT OF STOCK (comment this when in stock) -->
-  <!-- <button id="buy-btn" type="button" class="form-submit" disabled aria-disabled="true">OUT OF STOCK</button> -->
+  <button id="buy-btn" type="submit" class="form-submit" data-oos="false">BUY</button>
 
   <a
     href="mailto:okno.orders@gmail.com?subject=Art%20swap%20request&body=Hi%0A%0AI%20would%20love%20to%20swap%20something%20for%20your%20art.%0A%0AThe%20OKNO%20art%20I%20want%3A%0AThe%20thing%20I%20want%20to%20swap%3A%0A%0ALove%20you%20bye%20x"
