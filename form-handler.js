@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const orderNumber = Math.floor(100000 + Math.random() * 900000);
 
     if (website) {
-      return; // honeypot tripped
+      return;
     }
 
     if (!emailRe.test(email)) {
@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
       alert("UK orders need a full UK postcode in the address.");
       return;
     }
-    if (address.length < 12 || address.split(/\n|,/).map((p) => p.trim()).filter(Boolean).length < 2) {
+    if (address.length < 12) {
       alert("Please include house/flat + street and town/city with postcode.");
       return;
     }
