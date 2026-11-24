@@ -1,5 +1,5 @@
 const endpoints = {
-  prints: "https://script.google.com/macros/s/AKfycbzvQgsSX00rsWGQwChq-rna9x1RZP8kMrtXqM83072eEUdZ-WeiuiNYFkOvmqEtKsvD/exec",
+  prints: "https://script.google.com/macros/s/AKfycbzaPckAqUyHB-Xla7cW3--26SmtK2fBe_Drp1M_Uv1zRD_lVIg-ELK7GPXFYMlB8Y4Z/exec",
   decks: "https://script.google.com/macros/s/AKfycby4tWb-_Mb6JQLm2KgIA4NsITz9WftdCompnEp0YjAkQzjl9njnl5X6RzYz25Kh50Cw/exec"
 };
 
@@ -86,22 +86,11 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      if (text === "ERR_CAPTCHA") {
-        alert("Please complete the verification and try again.");
-      } else if (text === "ERR_SPAM") {
-        alert("That didn’t look right. Please reload and try again.");
-      } else if (text === "ERR_RATE") {
-        alert("You just submitted an order. Please wait 60 seconds and try again.");
-      } else if (text === "ERR_INVALID_EMAIL") {
-        alert("Please enter a real email address.");
-      } else if (text === "ERR_POSTCODE") {
-        alert("UK delivery needs a full UK postcode in the address.");
-      } else if (text === "ERR_ADDRESS") {
-        alert("Please include house/flat + street and town/city with postcode.");
-      } else if (text.startsWith("ERR_NON_UK")) {
-        const humanMsg = text.split(":").slice(1).join(":").trim() ||
-          "Sorry — I only ship within the UK. Please provide a UK delivery address with a valid postcode.";
-        alert(humanMsg);
+      const [code, ...detail] = text.split(":");
+      const serverMessage = detail.join(":").trim();
+
+      if (code.startsWith("ERR_")) {
+        alert(serverMessage || "Sorry, something went wrong. Please try again.");
       } else {
         alert("Sorry, something went wrong. Please try again.");
       }
