@@ -1,16 +1,29 @@
+const endpoints = {
+  prints: "https://script.google.com/macros/s/AKfycbzvQgsSX00rsWGQwChq-rna9x1RZP8kMrtXqM83072eEUdZ-WeiuiNYFkOvmqEtKsvD/exec",
+  decks: "https://script.google.com/macros/s/AKfycby4tWb-_Mb6JQLm2KgIA4NsITz9WftdCompnEp0YjAkQzjl9njnl5X6RzYz25Kh50Cw/exec"
+};
+
+window.oknoSetCFToken = function (token) {
+  const cf = document.getElementById("cfToken");
+  if (cf) cf.value = token || "";
+};
+
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("order-form");
   if (!form) return;
 
   const submitBtn = form.querySelector('button[type="submit"]');
+  const idleLabel = submitBtn ? submitBtn.textContent.trim() : "BUY";
+
+  if (submitBtn && submitBtn.dataset.oos === "true") {
+    submitBtn.textContent = "OUT OF STOCK";
+    submitBtn.disabled = true;
+    submitBtn.type = "button";
+    form.addEventListener("submit", (e) => e.preventDefault(), true);
+  }
 
   const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
   const ukPostcodeInText = /\b(?:GIR ?0AA|[A-Z]{1,2}\d{1,2}[A-Z]?\s?\d[A-Z]{2})\b/i;
-
-  window.oknoSetCFToken = window.oknoSetCFToken || function (token) {
-    const cf = document.getElementById("cfToken");
-    if (cf) cf.value = token || "";
-  };
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -50,23 +63,20 @@ document.addEventListener("DOMContentLoaded", () => {
         submitBtn.textContent = "SENDING…";
       }
 
-      const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbzvQgsSX00rsWGQwChq-rna9x1RZP8kMrtXqM83072eEUdZ-WeiuiNYFkOvmqEtKsvD/exec",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body: new URLSearchParams({
-            name,
-            email,
-            address,
-            orderNumber: String(orderNumber),
-            product,
-            website,
-            cfToken,
-          }),
-          signal: controller.signal,
-        }
-      );
+      const response = await fetch(endpoints[form.dataset.endpoint] || endpoints.prints, {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams({
+          name,
+          email,
+          address,
+          orderNumber: String(orderNumber),
+          product,
+          website,
+          cfToken
+        }),
+        signal: controller.signal
+      });
 
       const text = (await response.text()).trim();
 
@@ -105,7 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
       clearTimeout(to);
       if (!succeeded && submitBtn) {
         submitBtn.disabled = false;
-        submitBtn.textContent = "BUY";
+        submitBtn.textContent = idleLabel;
       }
     }
   });

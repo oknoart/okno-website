@@ -18,6 +18,9 @@ OKNO started in 2019 as a protest. Sharing posters and punk zines. A way of maki
 - [Manifesto](https://ok-no.net/manifesto/)
   OKNO started in 2019 as a protest. Sharing posters and punk zines. A way of making noise. No more ads, platforms or fees. Accessible art for all.
 
+- [Privacy](https://ok-no.net/privacy/)
+  How OKNO Design handles order details.
+
 ## Works
 
 - [Not Alien](https://ok-no.net/alien/)
